@@ -11,7 +11,8 @@ st.sidebar.success("Select a tab above.")
 
 # # Page information
 
-st.write("# Welcome to PROHI Dashboard! 👋")
+st.write("# 哈哈哈Welcome to PROHI Dashboard! 👋")
+st.write("Hello and welcome~")
 
 st.markdown(
 """
@@ -47,13 +48,13 @@ enhance the problem domain related to the selected dataset.
 ### UNCOMMENT THE CODE BELOW TO SEE EXAMPLE OF INPUT WIDGETS
 
 # # DATAFRAME MANAGEMENT
-# import numpy as np
+import numpy as np
 
-# dataframe = np.random.randn(10, 20)
-# st.dataframe(dataframe)
+dataframe = np.random.randn(10, 20)
+st.dataframe(dataframe)
 
 # # Add a slider to the sidebar:
-# add_slider = st.slider(
-#     'Select a range of values',
-#     0.0, 100.0, (25.0, 75.0)
-# )
+add_slider = st.slider(
+    'Select a range of values',
+    0.0, 100.0, (25.0, 75.0)
+ )
