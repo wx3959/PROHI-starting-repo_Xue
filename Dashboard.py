@@ -8,19 +8,29 @@ st.set_page_config(
 
 # Sidebar configuration
 st.sidebar.image("assets/logo.png")
-st.sidebar.caption('Welcome to the Heart Prediction - A Heart Faliure Prediction Platform!')
+st.sidebar.caption('Welcome to the Heart Prediction - A Heart Failure Prediction Platform!')
 page = st.sidebar.radio('Go to', ['Prediction', 'About'])
-if page == 'Prediction':
-    st.header('Type related values')
-    st.write('Dispaly Area')
-
 
 # # Page information
+if page == 'Prediction':
+    st.title('Heart Failure Prediction')
+    st.caption('Fill in the fields on right and click Submit to get a simple risk estimate.')
+    left, right = st.columns([1,2], gap ='large')
+    with left:
+        st.subheader('Tips!')
+        st.write('This is a simplified model for decomstration purposes only (not for clinical use).')
 
-st.title("Welcome to PROHI Dashboard!")
-st.caption("A simple demo dashboard for individual assignment 2.")
+    with right:
+        st.subheader('Patient Iformation')
+        
+        
 
-st.markdown(
+
+elif page == 'About':
+    st.title("Welcome to PROHI Dashboard!")
+    st.caption("A simple demo dashboard for individual assignment 2.")
+
+    st.markdown(
 """
     ## Aims
 
@@ -39,7 +49,7 @@ st.markdown(
     - explain how to work with sensitive health information in a safe and ethical way.
 
 """
-)
+    )
 
 # You can also add text right into the web as long comments (""")
 """
