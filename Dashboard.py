@@ -3,16 +3,22 @@ import streamlit as st
 st.set_page_config(
     page_title="PROHI Dashboard",
     page_icon="👋",
+    layout= "wide"
 )
 
 # Sidebar configuration
-st.sidebar.image("./assets/project-logo.jpg",)
-st.sidebar.success("Select a tab above.")
+st.sidebar.image("assets/logo.png")
+st.sidebar.caption('Welcome to the Heart Prediction - A Heart Faliure Prediction Platform!')
+page = st.sidebar.radio('Go to', ['Prediction', 'About'])
+if page == 'Prediction':
+    st.header('Type related values')
+    st.write('Dispaly Area')
+
 
 # # Page information
 
-st.write("# 哈哈哈Welcome to PROHI Dashboard! 👋")
-st.write("Hello and welcome~")
+st.title("Welcome to PROHI Dashboard!")
+st.caption("A simple demo dashboard for individual assignment 2.")
 
 st.markdown(
 """
