@@ -21,8 +21,8 @@ if page == 'Prediction':
         st.write('This is a simplified model for decomstration purposes only (not for clinical use).')
 
     with right:
-        st.subheader('Patient Iformation')
-        
+        st.subheader('Patient Information')
+
         
 
 
