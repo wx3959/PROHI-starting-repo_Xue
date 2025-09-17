@@ -9,7 +9,7 @@ st.set_page_config(
 # Sidebar configuration
 st.sidebar.image("assets/logo.png")
 st.sidebar.caption('Welcome to the Heart Prediction - A Heart Failure Prediction Platform!')
-page = st.sidebar.radio('Go to', ['Prediction', 'About'])
+page = st.sidebar.radio('Go to', ['Dashboard', 'Prediction', 'About'])
 
 # # Page information
 if page == 'Prediction':
