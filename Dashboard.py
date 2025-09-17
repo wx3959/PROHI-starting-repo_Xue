@@ -1,4 +1,7 @@
 import streamlit as st
+import numpy as np
+import pandas as pd
+import altair as alt
 
 st.set_page_config(
     page_title="PROHI Dashboard",
@@ -12,65 +15,66 @@ st.sidebar.caption('Welcome to the Heart Prediction - A Heart Failure Prediction
 page = st.sidebar.radio('Go to', ['Dashboard', 'Prediction', 'About'])
 
 # # Page information
-if page == 'Prediction':
+
+if page == 'Dashboard':
+    st.title('Dashboard')
+    st.caption('A simple demo dashborad for individual assignment 2.')
+    left, right = st.columns([1,2], gap ='large')
+    with left:
+        st.subheader("Controls")
+        n_points = st.slider("Number of data points", 10, 500, 250, step=10)
+        dist = st.selectbox("Distribution", ["Normal", "Uniform"])
+        label = st.text_input("Series label", value="My Series")
+
+        rng = np.random.default_rng(9771)
+        x = np.arange(n_points)
+        y = rng.normal(0, 1, n_points) if dist == "Normal" else rng.uniform(-1, 1, n_points)
+        df = pd.DataFrame({"x": x, "y": y, "label": label})
+
+    with right:
+        st.subheader("Data & Chart")
+        st.dataframe(df.head(), use_container_width=True)
+
+        chart = (
+            alt.Chart(df)
+            .mark_line()
+            .encode(x="x:Q", y="y:Q", tooltip=["x", "y"])
+        )
+        st.altair_chart(chart, use_container_width=True)
+
+
+
+
+elif page == 'Prediction':
     st.title('Heart Failure Prediction')
     st.caption('Fill in the fields on right and click Submit to get a simple risk estimate.')
     left, right = st.columns([1,2], gap ='large')
     with left:
-        st.subheader('Tips!')
+        st.subheader('👉 Tips!')
         st.write('This is a simplified model for decomstration purposes only (not for clinical use).')
 
     with right:
         st.subheader('Patient Information')
+        age = st.number_input("Age (years)", min_value=0, max_value=120, value=50, step=1)
+        sex = st.selectbox("Sex", ["Female", "Male"])
+        chol = st.number_input("Serum cholesterol (mg/dL)", min_value=100, max_value=600, value=200, step=1)
+        submitted = st.button("Submit")
+        if submitted:
+            st.success("Form submitted! (Demo only, no real prediction)")
 
-        
 
 
 elif page == 'About':
     st.title("Welcome to PROHI Dashboard!")
     st.caption("A simple demo dashboard for individual assignment 2.")
 
-    st.markdown(
-"""
-    ## Aims
+    st.markdown("""
+    During the DSHI course, I built a multipage Streamlit dashboard to practice data product skills.  
+    The dashboard contains three pages:  
+    - A **Dashboard** page with input widgets, data preview, and a chart.  
+    - A **Prediction** page with a simplified heart failure prediction form.  
+    - An **About** page describing the project.  
 
-    After completing the course the student should be able to:
-    - explain basic project management methods
-    - be able to account for success factors in Health Informatics projects
-    - understand basic methods and tools in the field of data science and machine learning
-    - explain process models for data mining projects
-    - explain the difference between rule-based methods and machine learning methods
-    - apply basic project management methods
-    - work in an international multidisciplinary project group
-    - independently lead and implement a limited project in health informatics - document the steps in the design of a prototype for a health informatics project
-    - apply the steps in a process model for data mining projects
-    - apply methods from the field of text mining on different types of health informatics problems
-    - explain and argue for their positions regarding the implementation of a health informatics project
-    - explain how to work with sensitive health information in a safe and ethical way.
-
-"""
-    )
-
-# You can also add text right into the web as long comments (""")
-"""
-The final project aims to apply data science concepts and skills on a 
-medical case study that you and your team select from a public data source.
-The project assumes that you bring the technical Python skills from 
-previous courses (*DSHI*: Data Science for Health Informatics), as well as 
-the analytical skills to argue how and why specific techniques could
-enhance the problem domain related to the selected dataset.
-"""
-
-### UNCOMMENT THE CODE BELOW TO SEE EXAMPLE OF INPUT WIDGETS
-
-# # DATAFRAME MANAGEMENT
-import numpy as np
-
-dataframe = np.random.randn(10, 20)
-st.dataframe(dataframe)
-
-# # Add a slider to the sidebar:
-add_slider = st.slider(
-    'Select a range of values',
-    0.0, 100.0, (25.0, 75.0)
- )
+    This project demonstrates how to organize Streamlit apps, use input widgets, and integrate basic 
+    data visualization. It also serves as a starting point for future health informatics applications.
+    """)   
