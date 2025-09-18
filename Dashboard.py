@@ -18,7 +18,7 @@ page = st.sidebar.radio('Go to', ['Dashboard', 'Prediction', 'About'])
 
 if page == 'Dashboard':
     st.title('Dashboard')
-    st.caption('A simple demo dashborad for individual assignment 2.')
+    st.caption('A simple demo dashboard for individual assignment 2.')
     left, right = st.columns([1,2], gap ='large')
     with left:
         st.subheader("Controls")
@@ -51,7 +51,7 @@ elif page == 'Prediction':
     left, right = st.columns([1,2], gap ='large')
     with left:
         st.subheader('👉 Tips!')
-        st.write('This is a simplified model for decomstration purposes only (not for clinical use).')
+        st.write('This is a simplified model for demonstration purposes only (not for clinical use).')
 
     with right:
         st.subheader('Patient Information')
@@ -65,16 +65,13 @@ elif page == 'Prediction':
 
 
 elif page == 'About':
-    st.title("Welcome to PROHI Dashboard!")
-    st.caption("A simple demo dashboard for individual assignment 2.")
-
+    st.title("Xue Wu")
     st.markdown("""
-    During the DSHI course, I built a multipage Streamlit dashboard to practice data product skills.  
-    The dashboard contains three pages:  
-    - A **Dashboard** page with input widgets, data preview, and a chart.  
-    - A **Prediction** page with a simplified heart failure prediction form.  
-    - An **About** page describing the project.  
+    **About this project**
 
-    This project demonstrates how to organize Streamlit apps, use input widgets, and integrate basic 
-    data visualization. It also serves as a starting point for future health informatics applications.
-    """)   
+During the DSHI course, I built a simple multipage Streamlit dashboard to practice end-to-end data product skills.  
+The app includes a Dashboard page with interactive input widgets, a small synthetic dataset generated with NumPy, and a clean Altair chart for quick visual exploration.  
+A Prediction page demonstrates how a basic form could collect patient-level inputs for a toy risk estimate (not for clinical use).  
+My focus was clarity, reproducibility, and version control: I organized the repository, wrote a self-explanatory README with screenshots, and used incremental commits with descriptive messages.  
+This mini project reflects a typical data science workflow—parameterization, tabular inspection, and visualization—and serves as a starting point for future health informatics prototypes.
+    """)
