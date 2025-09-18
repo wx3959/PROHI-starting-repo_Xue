@@ -1,50 +1,51 @@
 # PROHI Dashboard Example
 
 **Author**: Xue WU
-<!-- As main author, do not write anything in the line below.
-The collaborator will edit the line below in GitHub -->
 **Collaborator**: Huong Le
-#Hello Good morning!
-
-_Note that this file is written in **MarkDown** language. A reference is available here: <https://www.markdownguide.org/basic-syntax/>_
-
-_Here you can include images, like the logo from SU_
-
-![Your dashboard](./assets/project-logo.jpg)
 
 ## Introduction
 
-_This template project will contain a simple interactive web dashboard with Streamlit. Feel free to edit this document as desired_
+This repository contains a simple **multipage Streamlit web dashboard** developed as part of the DSHI course individual assignment.  
+The app demonstrates how to build interactive dashboards with basic input widgets, data tables, and visualizations.
 
-## System description
+The dashboard includes the following pages:
+- **Dashboard**: interactive controls (3+ input widgets), a synthetic dataset preview, and an Altair line chart.  
+- **Prediction**: a simplified form that collects patient information (age, sex, cholesterol) and displays a demo submission result.  
+- **About**: project summary and author information.
 
-### Installation of libraries
+## Screenshots
 
-Run the commands below in a terminal to configure the project and install the package dependencies for the first time.
+### Dashboard Page
+Here the user can adjust controls (slider, selectbox, text input) and see a synthetic dataset preview with an Altair line chart.
+![Dashboard screenshot](./assets/dashboard.png)
 
-If you are using Mac, you may need to install Xcode. Check the official Streamlit documentation [here](https://docs.streamlit.io/get-started/installation/command-line#prerequisites).
+### Prediction Page
+Here the user can fill in patient information (age, sex, cholesterol) and submit the form to simulate a prediction.
+![Prediction screenshot](./assets/prediction.png)
 
-1. Create the environment with `python -m venv env`
-2. Activate the virtual environment for Python
+### About Page
+This page introduces the author and summarizes the project in 100–150 words, formatted in Markdown.  
+It highlights the structure of the dashboard, the main learning objectives, and the use of version control and documentation.  
+![About screenshot](./assets/about.png)
+
+
+## Installation
+
+1. Clone the repository:
+  git clone https://github.com/wx3959/PROHI-starting-repo_Xue.git
+
+2. Create a virtual environment:
+  `python -m venv env`
+3. Activate the virtual environment for Python
    - [Linux/Mac] `source env/bin/activate` 
    - [Windows command prompt] `.\env\Scripts\activate.bat` 
    - [in Windows PowerShell] `.\env\Scripts\Activate.ps1`
-3. Make sure that your terminal is in the environment (`env`) not in the global Python installation. The terminal should start with the word `env`
-4. Install required packages `pip install -r ./requirements.txt`
-5. Check that the installation works running `streamlit hello`
-6. Stop the terminal by pressing **Ctrl+C**
+4. Install required packages:
+   `pip install -r ./requirements.txt`
+5. Make sure the virtual environment is activated. Then run:
+   `streamlit run Dashboard.py`
 
-### Execute custom Dashboard
-
-First, make sure that you are running Python from the environment. Check the steps 2 and 3 above. Then, to run the custom dashboard execute the following command:
-
-```
-> streamlit run Dashboard.py
-# If the command above fails, use:
-> python -m streamlit run Dashboard.py
-```
-
-### Dependencies
+## Dependencies
 
 Tested on Python 3.12.7 with the following packages:
   - Jupyter v1.1.1
@@ -53,7 +54,7 @@ Tested on Python 3.12.7 with the following packages:
   - Plotly v6.2.0
   - Scikit-Learn v1.7.0
   - shap v0.48.0
+  - Altair v5.5.0
 
 ## Contributors
-
-_Add the project's authors, contact information, and links to websites or portfolios._
+- Xue Wu
